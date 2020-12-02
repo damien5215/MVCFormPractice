@@ -16,10 +16,15 @@ namespace MVCFormPractice.Controllers
             _bookRepository = new BookRepository();
         }
 
-        // GET: Book
-        public ActionResult Index()
+        public ActionResult Detail(int? id)
         {
-            return View();
+            if (id == null) 
+            {
+                return HttpNotFound();
+            }
+
+            var book = _bookRepository.GetBook((int)id);
+            return View(book);
         }
     }
 }
