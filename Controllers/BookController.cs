@@ -26,5 +26,17 @@ namespace MVCFormPractice.Controllers
             var book = _bookRepository.GetBook((int)id);
             return View(book);
         }
+
+        public ActionResult AddBook()
+        {
+            return View();
+        }
+
+        [ActionName("AddBook"), HttpPost]
+        public ActionResult AddBookPost()
+        {
+            return View();
+        }
+
     }
 }
