@@ -32,9 +32,8 @@ namespace MVCFormPractice.Controllers
             return View();
         }
 
-        //[ActionName("AddBook"), HttpPost]
         [HttpPost]
-        public ActionResult AddBook(string title, string author) // AddBookPost
+        public ActionResult AddBook(string title, string author)
         {
             ViewBag.BookTitle = title;
             ViewBag.Author = author;
