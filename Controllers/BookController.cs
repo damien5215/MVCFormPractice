@@ -27,16 +27,21 @@ namespace MVCFormPractice.Controllers
             return View(book);
         }
 
+        // https://github.com/treehouse-projects/aspnet-fitness-frog/tree/master/src/Treehouse.FitnessFrog
+
         public ActionResult AddBook()
         {
+            //var entry = new Entry();
+
             return View();
         }
 
         [HttpPost]
-        public ActionResult AddBook(string title, string author)
+        public ActionResult AddBook(string title, string author, int? bookID)
         {
-            ViewBag.BookTitle = title;
-            ViewBag.Author = author;
+            //ViewBag.BookTitle = title;
+            //ViewBag.Author = author;
+            //ViewBag.BookID = bookID;
 
             return View();
         }

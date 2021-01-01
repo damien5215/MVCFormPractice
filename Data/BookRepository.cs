@@ -15,7 +15,8 @@ namespace MVCFormPractice.Data
                 Id = 1,
                 Title = "Nausea",
                 Author = "Jean Paul Sartre",
-                Description = "Nausea is a philosophical novel by the existentialist philosopher Jean-Paul Sartre, published in 1938. It is Sartre's first novel and, in his own opinion, one of his best works."
+                Description = "Nausea is a philosophical novel by the existentialist philosopher Jean-Paul Sartre, published in 1938. It is Sartre's first novel and, in his own opinion, one of his best works.",
+                BookID = 3241
             },
 
             new Book()
@@ -23,7 +24,8 @@ namespace MVCFormPractice.Data
                 Id = 2,
                 Title = "The Bell Jar",
                 Author = "Sylvia Plath",
-                Description = "The Bell Jar is the only novel written by the American writer and poet Sylvia Plath. Originally published under the pseudonym \"Victoria Lucas\" in 1963, the novel is semi-autobiographical, with the names of places and people changed."
+                Description = "The Bell Jar is the only novel written by the American writer and poet Sylvia Plath. Originally published under the pseudonym \"Victoria Lucas\" in 1963, the novel is semi-autobiographical, with the names of places and people changed.",
+                BookID = 2699
             }
         };
 

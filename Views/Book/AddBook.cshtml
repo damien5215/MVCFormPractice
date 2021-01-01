@@ -1,25 +1,35 @@
-﻿@*@model MVCFormPractice.Models.Book*@
-
+﻿
 @{
     ViewBag.Title = "AddBook";
 }
 
 <h2>AddBook</h2>
 
-<form method="post">
-
+@using (Html.BeginForm())
+{
     <div class="row">
 
         <div class="col-md-6">
 
             <div class="form-group">
-                <label for="title" class="control-label">Title</label>
-                <input type="text" id="title" name="title" class="form-control" value="@ViewBag.BookTitle">
+                @Html.Label("title", new { @class = "control-label" })
+                @Html.TextBox("title", new { @class = "form-control" })
+                @*<label for="title" class="control-label">Title</label>
+                <input type="text" id="title" name="title" class="form-control" value="@ViewBag.BookTitle">*@
             </div>
 
             <div class="form-group">
-                <label for="author" class="control-label">Author</label>
-                <input type="text" id="author" name="author" class="form-control" value="@ViewBag.Author">
+                @Html.Label("author", new { @class = "control-label" })
+                @Html.TextBox("author", new { @class = "form-control" })
+                @*<label for="author" class="control-label">Author</label>
+                <input type="text" id="author" name="author" class="form-control" value="@ViewBag.Author">*@
+            </div>
+
+            <div class="form-group">
+                @Html.Label("bookID", new { @class = "control-label" })
+                @Html.TextBox("bookID", new { @class = "form-control" })
+                @*<label for="bookID" class="control-label">BookID</label>
+                <input type="text" id="bookID" name="bookID" class="form-control" value="@ViewBag.BookID">*@
             </div>
 
         </div>
@@ -32,5 +42,38 @@
 
         </div>
     </div>
+}
 
-</form>
+@*<form method="post">
+
+    <div class="row">
+
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <label for="title" class="control-label">Title</label>
+                    <input type="text" id="title" name="title" class="form-control" value="@ViewBag.BookTitle">
+                </div>
+
+                <div class="form-group">
+                    <label for="author" class="control-label">Author</label>
+                    <input type="text" id="author" name="author" class="form-control" value="@ViewBag.Author">
+                </div>
+
+                <div class="form-group">
+                    <label for="bookID" class="control-label">BookID</label>
+                    <input type="text" id="bookID" name="bookID" class="form-control" value="@ViewBag.BookID">
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-12">
+            <div class="pad-top">
+                <button type="submit" class="btn btn-default">Submit</button>
+
+            </div>
+        </div>
+
+</form>*@
