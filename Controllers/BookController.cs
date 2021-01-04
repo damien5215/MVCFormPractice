@@ -1,4 +1,5 @@
 ﻿using MVCFormPractice.Data;
+using MVCFormPractice.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,18 @@ namespace MVCFormPractice.Controllers
 {
     public class BookController : Controller
     {
-        private BookRepository _bookRepository = null;
+        private BookRepository2 _bookRepository = null;
 
         public BookController() 
         {
-            _bookRepository = new BookRepository();
+            _bookRepository = new BookRepository2();
+        }
+
+        public ActionResult Index()
+        {
+            List<Book> entries = _bookRepository.GetEntries();
+
+            return View(entries);
         }
 
         public ActionResult Detail(int? id)
@@ -31,19 +39,19 @@ namespace MVCFormPractice.Controllers
 
         public ActionResult AddBook()
         {
-            //var entry = new Entry();
+            var entry = new Book();
 
-            return View();
+            return View(entry);
         }
 
         [HttpPost]
-        public ActionResult AddBook(string title, string author, int? bookID)
+        public ActionResult AddBook(Book entry)
         {
             //ViewBag.BookTitle = title;
             //ViewBag.Author = author;
             //ViewBag.BookID = bookID;
 
-            return View();
+            return View(entry);
         }
 
     }

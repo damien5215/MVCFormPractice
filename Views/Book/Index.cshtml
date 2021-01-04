@@ -1,0 +1,36 @@
+﻿@model List<MVCFormPractice.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>Date</th>
+        <th>Activity</th>
+        <th>Duration</th>
+        <th>&nbsp;</th>
+    </tr>
+    @foreach (var entry in Model)
+    {
+        <tr>
+            <td>
+                @entry.Title
+            </td>
+            <td>@entry.Author</td>
+            <td>@entry.BookID</td>
+            <td>
+                <div class="pull-right">
+                    <a href="@Url.Action("Edit", new { id = entry.Id })" class="btn btn-warning btn-sm margin-right">
+                        <span class="glyphicon glyphicon-edit"></span><span class="hidden-xs"> Edit</span>
+                    </a>
+                    <a href="@Url.Action("Delete", new { id = entry.Id })" class="btn btn-danger btn-sm">
+                        <span class="glyphicon glyphicon-trash"></span><span class="hidden-xs"> Delete</span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    }
+</table>
