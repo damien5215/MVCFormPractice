@@ -28,6 +28,16 @@ namespace MVCFormPractice.Data
 
             return book;
         }
+        public void AddEntry(Book book)
+        {
+            // Get the next available entry ID.
+            int nextAvailableEntryId = Data.Books
+                .Max(e => e.Id) + 1;
+
+            book.Id = nextAvailableEntryId;
+
+            Data.Books.Add(book);
+        }
 
     }
 }

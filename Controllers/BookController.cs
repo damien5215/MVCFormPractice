@@ -47,10 +47,15 @@ namespace MVCFormPractice.Controllers
         [HttpPost]
         public ActionResult AddBook(Book entry)
         {
-            //ViewBag.BookTitle = title;
-            //ViewBag.Author = author;
-            //ViewBag.BookID = bookID;
+            if (ModelState.IsValid) 
+            {
+                _bookRepository.AddEntry(entry);
+                //List<Book> entries = _bookRepository.GetEntries();
 
+                return RedirectToAction("Index");
+                //return View("Index", entries);
+            }
+            
             return View(entry);
         }
 
