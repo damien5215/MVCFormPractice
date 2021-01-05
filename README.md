@@ -10,9 +10,9 @@ NOTE - The code in this class (Data) is not to be considered a "best practice" e
 
 This project involves - 
 
-Creating Forms for CRUD Applications
-Handling Form Posts
-Model State
-Using HTML Helpers to Create Form Fields
-Model Binding
-Client-Side and Server-Side Form Validation
+1. Creating Forms for CRUD Applications
+2. Handling Form Posts
+3. Model State
+4. Using HTML Helpers to Create Form Fields
+5. Model Binding
+6. Client-Side and Server-Side Form Validation
