@@ -16,3 +16,12 @@ This project involves -
 4. Using HTML Helpers to Create Form Fields
 5. Model Binding
 6. Client-Side and Server-Side Form Validation
+
+Concepts Learned - 
+
+MVC’s model binding process will attempt to set an action method’s parameter values by looking for request form fields, route data, or request query string parameters with the same names.
+
+The post/redirect/get pattern is a commonly used web development design pattern for preventing duplicate form submissions.
+
+The ModelState property, provided by the Controller base class, contains a collection of the name/value pairs posted to the server along with a collection of error messages for each value submitted.
+
