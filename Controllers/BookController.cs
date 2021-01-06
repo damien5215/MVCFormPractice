@@ -41,6 +41,8 @@ namespace MVCFormPractice.Controllers
         {
             var entry = new Book();
 
+            ViewBag.GenreSelectListItems = new SelectList(Data.Data.Genres, "Id", "Name");
+
             return View(entry);
         }
 
@@ -55,7 +57,9 @@ namespace MVCFormPractice.Controllers
                 return RedirectToAction("Index");
                 //return View("Index", entries);
             }
-            
+
+            ViewBag.GenreSelectListItems = new SelectList(Data.Data.Genres, "Id", "Name");
+
             return View(entry);
         }
 

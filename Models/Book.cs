@@ -13,10 +13,11 @@ namespace MVCFormPractice.Models
         { 
         }
 
-        public Book(int id, string title, string author,
+        public Book(int id, Genre.GenreType genreType, string title, string author,
             string description, int bookID)
         {
             Id = id;
+            GenreId = (int)genreType;     //
             Title = title;
             Author = author;
             Description = description;
@@ -24,6 +25,10 @@ namespace MVCFormPractice.Models
         }
 
         public int Id { get; set; }
+
+        [Display(Name = "Genre")]            //
+        public int GenreId { get; set; }     //
+        public Genre Genre { get; set; }     //
         public string Title { get; set; }
         public string Author { get; set; }
         public string Description { get; set; }

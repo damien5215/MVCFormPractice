@@ -10,6 +10,7 @@
     <tr>
         <th>Book Title</th>
         <th>Author</th>
+        <th>Genre</th>
         <th>Book ID No</th>
         <th>&nbsp;</th>
     </tr>
@@ -20,6 +21,8 @@
                 @entry.Title
             </td>
             <td>@entry.Author</td>
+            <td>@entry.Genre.Name</td>
+
             <td>@entry.BookID</td>
             <td>
                 <div class="pull-right">

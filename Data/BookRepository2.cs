@@ -8,15 +8,26 @@ namespace MVCFormPractice.Data
 {
     public class BookRepository2
     {
-        /// <summary>
-        /// Returns a collection of entries.
-        /// </summary>
-        /// <returns>A list of entries.</returns>
+        //public List<Book> GetEntries2()
+        //{
+        //    return Data.Books
+        //        .OrderByDescending(e => e.Id)
+        //        .ToList();
+        //}
+
         public List<Book> GetEntries()
         {
             return Data.Books
-                .OrderByDescending(e => e.Id)
-                //.ThenByDescending(e => e.Id)
+                .Join(
+                    Data.Genres, // The inner collection
+                    e => e.GenreId, // The outer selector
+                    a => a.Id,  // The inner selector
+                    (e, a) =>  // The result selector
+                    {
+                        e.Genre = a; // Set the entry's Activity property
+                        return e; // Return the entry
+                    }
+                    )
                 .ToList();
         }
 
