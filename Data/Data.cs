@@ -37,10 +37,10 @@ namespace MVCFormPractice.Data
 
             var entries = new List<Book>()
             {
-                new Book(1, Genre.GenreType.Literary, "Nausea", "Jean Paul Sartre", "blah blah blah.", 4526),
-                new Book(2, Genre.GenreType.Literary, "The Bell Jar", "Sylvia Plath", "blah blah blah.", 2526),
-                new Book(3, Genre.GenreType.Literary, "Brideshead Revisited", "Evelyn Waugh", "blah blah blah.", 4116),
-                new Book(4, Genre.GenreType.Comedy, "A Moveable Feast", "Ernest Hemmingway", "blah blah blah.", 2704)
+                new Book(1, Genre.GenreType.Literary, "Nausea", "Jean Paul Sartre", "blah blah blah.", true, 14526),
+                new Book(2, Genre.GenreType.Literary, "The Bell Jar", "Sylvia Plath", "blah blah blah.", true, 2526),
+                new Book(3, Genre.GenreType.Literary, "Brideshead Revisited", "Evelyn Waugh", "blah blah blah.", false, 4116),
+                new Book(4, Genre.GenreType.Comedy, "A Moveable Feast", "Ernest Hemmingway", "blah blah blah.", true, 2704)
             };
 
             Genres = genres;

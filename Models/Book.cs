@@ -8,11 +8,11 @@ namespace MVCFormPractice.Models
 {
     public class Book
     {
-        public enum Fiction
-        {
-            FictionLow,
-            NonFiction
-        }
+        //public enum FictionEnum
+        //{
+        //    Fiction,
+        //    NonFiction
+        //}
 
         // default constructor
         public Book() 
@@ -20,24 +20,29 @@ namespace MVCFormPractice.Models
         }
 
         public Book(int id, Genre.GenreType genreType, string title, string author,
-            string description, int bookID)
+            string description, bool inStock, int bookID)
         {
             Id = id;
-            GenreId = (int)genreType;     //
+            GenreId = (int)genreType;     
             Title = title;
             Author = author;
             Description = description;
+            //Fiction = fiction;
+            InStock = inStock;
             BookID = bookID;
         }
 
         public int Id { get; set; }
 
-        [Display(Name = "Genre")]            //
-        public int GenreId { get; set; }     //
-        public Genre Genre { get; set; }     //
+        [Display(Name = "Genre")]            
+        public int GenreId { get; set; }     
+        public Genre Genre { get; set; }     
         public string Title { get; set; }
         public string Author { get; set; }
         public string Description { get; set; }
+        //public FictionEnum Fiction { get; set; }
+
+        public bool InStock { get; set; }
         public int BookID { get; set; }
 
         public string DisplayText 
