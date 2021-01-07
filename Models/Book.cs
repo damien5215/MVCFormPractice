@@ -8,6 +8,12 @@ namespace MVCFormPractice.Models
 {
     public class Book
     {
+        public enum Fiction
+        {
+            FictionLow,
+            NonFiction
+        }
+
         // default constructor
         public Book() 
         { 
