@@ -40,7 +40,7 @@ namespace MVCFormPractice.Models
         public int GenreId { get; set; }     
         public Genre Genre { get; set; }
 
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
         public string Title { get; set; }
         public string Author { get; set; }
         public string Description { get; set; }
