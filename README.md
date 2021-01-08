@@ -25,3 +25,6 @@ The post/redirect/get pattern is a commonly used web development design pattern 
 
 The ModelState property, provided by the Controller base class, contains a collection of the name/value pairs posted to the server along with a collection of error messages for each value submitted.
 
+MVC gives priority to the ModelState values over the Model property values as long as there are ModelState values present.
+
+SelectListItem is a simple object that’s used to represent an item in a drop down list. In addition to the SelectListItem class, MVC provides the SelectList class as a convenience for creating a collection of SelectListItem objects.
