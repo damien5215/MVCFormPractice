@@ -49,6 +49,11 @@ namespace MVCFormPractice.Controllers
         [HttpPost]
         public ActionResult AddBook(Book entry)
         {
+            if (ModelState.IsValidField("BookID") && entry.BookID <= 0) 
+            {
+                ModelState.AddModelError("BooKID","The BookID field value must be greater than '0'.");
+            }
+
             if (ModelState.IsValid) 
             {
                 _bookRepository.AddEntry(entry);
