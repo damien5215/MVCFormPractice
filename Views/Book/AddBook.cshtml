@@ -7,6 +7,8 @@
 
 <h2>AddBook</h2>
 
+@Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
+
 @using (Html.BeginForm())
 {
     <div class="row">
@@ -22,7 +24,7 @@
                 @Html.LabelFor(m => m.Title, new { @class = "control-label" })
                 @Html.TextBoxFor(m => m.Title, null, new { @class = "form-control" })
                 @*<label for="title" class="control-label">Title</label>
-            <input type="text" id="title" name="title" class="form-control" value="@ViewBag.BookTitle">*@
+                    <input type="text" id="title" name="title" class="form-control" value="@ViewBag.BookTitle">*@
             </div>
 
             <div class="form-group">
@@ -68,14 +70,14 @@
                     </div>
 
 
-        </div>
+                </div>
 
-    </div>
+            </div>
 
-    <div class="col-md-12">
-        <div class="pad-top">
-            <button type="submit" class="btn btn-default">Submit</button>
+            <div class="col-md-12">
+                <div class="pad-top">
+                    <button type="submit" class="btn btn-default">Submit</button>
 
-        </div>
-    </div>
-}
+                </div>
+            </div>
+        }

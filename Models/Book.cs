@@ -43,6 +43,8 @@ namespace MVCFormPractice.Models
         public DateTime Date { get; set; } = DateTime.Now;
         public string Title { get; set; }
         public string Author { get; set; }
+        
+        [MaxLength(200, ErrorMessage = "The Description field cannot be longer than 200 characters.")]
         public string Description { get; set; }
         public FictionEnum Fiction { get; set; }
         public bool InStock { get; set; }
