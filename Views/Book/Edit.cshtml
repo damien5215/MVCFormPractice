@@ -1,0 +1,82 @@
+﻿@model MVCFormPractice.Models.Book
+@using MVCFormPractice.Models
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Date, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Date, "{0:d}", new { @class = "form-control datepicker" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Title, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Title, null, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Author, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Author, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Description, new { @class = "control-label" })
+                @Html.TextAreaFor(m => m.Description, 4, 4, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.GenreId, new { @class = "control-label" })
+                @Html.DropDownListFor(m => m.GenreId, (SelectList)ViewBag.GenreSelectListItems, "", new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Fiction, new { @class = "control-label" })
+                <div>
+                    <label class="radio-inline">
+                        @Html.RadioButtonFor(m => m.Fiction,
+                            Book.FictionEnum.Fiction) @Book.FictionEnum.Fiction
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.Fiction,
+                                Book.FictionEnum.NonFiction) @Book.FictionEnum.NonFiction
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                @Html.CheckBoxFor(m => m.InStock) @Html.DisplayNameFor(m => m.InStock)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.BookID, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.BookID, new { @class = "form-control" })
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="col-md-12">
+                <div class="pad-top">
+                    <button type="submit" class="btn btn-default">Submit</button>
+
+                </div>
+            </div>
+        }
+

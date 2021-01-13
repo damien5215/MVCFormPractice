@@ -3,6 +3,7 @@ using MVCFormPractice.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -67,6 +68,46 @@ namespace MVCFormPractice.Controllers
 
             return View(entry);
         }
+
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Book entry = _bookRepository.GetBook((int)id);
+
+
+            if (entry == null)
+            {
+                return HttpNotFound();
+            }
+
+            ViewBag.GenreSelectListItems = new SelectList(Data.Data.Genres, "Id", "Name");
+            //SetupActivitiesSelectListItems();
+
+            return View(entry);
+        }
+
+        //[HttpPost]
+        //public ActionResult Edit(Entry entry)
+        //{
+        //ValidateEntry(entry);
+
+        //if (ModelState.IsValid)
+        //{
+        //    _entriesRepository.UpdateEntry(entry);
+
+        //    TempData["Message"] = "Your entry was successfully updated!";
+
+        //    return RedirectToAction("Index");
+        //}
+
+        //SetupActivitiesSelectListItems();
+
+        //return View(entry);
+        //}
 
     }
 }
