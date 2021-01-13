@@ -44,6 +44,7 @@ namespace MVCFormPractice.Models
         public string Title { get; set; }
         public string Author { get; set; }
         
+        [Required]
         [MaxLength(200, ErrorMessage = "The Description field cannot be longer than 200 characters.")]
         public string Description { get; set; }
         public FictionEnum Fiction { get; set; }
