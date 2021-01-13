@@ -28,3 +28,13 @@ The ModelState property, provided by the Controller base class, contains a colle
 MVC gives priority to the ModelState values over the Model property values as long as there are ModelState values present.
 
 SelectListItem is a simple object that’s used to represent an item in a drop down list. In addition to the SelectListItem class, MVC provides the SelectList class as a convenience for creating a collection of SelectListItem objects.
+
+The AddModelError method can only be used to implement server-side validation rules.
+
+Nullable properties can be made to be validated as required by adding a [Required] data annotation to the property.
+
+The MVC model binder will automatically validate non-nullable value type properties as “required” fields.
+
+A validation summary section can be added to a view by calling the ValidationSummary HTML helper method.
+
+Both the “UnobtrusiveJavaScriptEnabled” and “ClientValidationEnabled” app settings must be set to “true” to enable client-side validation (web.config).
