@@ -36,13 +36,11 @@ namespace MVCFormPractice.Controllers
             return View(book);
         }
 
-        // https://github.com/treehouse-projects/aspnet-fitness-frog/tree/master/src/Treehouse.FitnessFrog
-
         public ActionResult AddBook()
         {
             var entry = new Book();
 
-            ViewBag.GenreSelectListItems = new SelectList(Data.Data.Genres, "Id", "Name");
+            SetupGenreSelectListItems();
 
             return View(entry);
         }
@@ -58,13 +56,11 @@ namespace MVCFormPractice.Controllers
             if (ModelState.IsValid) 
             {
                 _bookRepository.AddEntry(entry);
-                //List<Book> entries = _bookRepository.GetEntries();
 
                 return RedirectToAction("Index");
-                //return View("Index", entries);
             }
 
-            ViewBag.GenreSelectListItems = new SelectList(Data.Data.Genres, "Id", "Name");
+            SetupGenreSelectListItems();
 
             return View(entry);
         }
@@ -84,8 +80,7 @@ namespace MVCFormPractice.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.GenreSelectListItems = new SelectList(Data.Data.Genres, "Id", "Name");
-            //SetupActivitiesSelectListItems();
+            SetupGenreSelectListItems();
 
             return View(entry);
         }
@@ -93,7 +88,7 @@ namespace MVCFormPractice.Controllers
         [HttpPost]
         public ActionResult Edit(Book entry)
         {
-            //ValidateEntry(entry);
+            ValidateEntry(entry);
 
             if (ModelState.IsValid)
             {
@@ -104,10 +99,23 @@ namespace MVCFormPractice.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.GenreSelectListItems = new SelectList(Data.Data.Genres, "Id", "Name");
-            //SetupActivitiesSelectListItems();
+            SetupGenreSelectListItems();
 
             return View(entry);
+        }
+
+
+        private void ValidateEntry(Book entry)
+        {
+            if (ModelState.IsValidField("BookID") && entry.BookID <= 0)
+            {
+                ModelState.AddModelError("BooKID", "The BookID field value must be greater than '0'.");
+            }
+        }
+
+        private void SetupGenreSelectListItems()
+        {
+            ViewBag.GenreSelectListItems = new SelectList(Data.Data.Genres, "Id", "Name");
         }
 
     }
