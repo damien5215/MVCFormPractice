@@ -8,12 +8,6 @@ namespace MVCFormPractice.Data
 {
     public class BookRepository2
     {
-        //public List<Book> GetEntries2()
-        //{
-        //    return Data.Books
-        //        .OrderByDescending(e => e.Id)
-        //        .ToList();
-        //}
 
         public List<Book> GetEntries()
         {
@@ -24,7 +18,7 @@ namespace MVCFormPractice.Data
                     a => a.Id,  // The inner selector
                     (e, a) =>  // The result selector
                     {
-                        e.Genre = a; // Set the entry's Activity property
+                        e.Genre = a; // Set the entry's Genre property
                         return e; // Return the entry
                     }
                     )
@@ -62,6 +56,20 @@ namespace MVCFormPractice.Data
             }
 
             Data.Books[entryIndex] = entry;
+        }
+
+        public void DeleteEntry(int id)
+        {
+            // Find the index of the entry that we need to delete.
+            int entryIndex = Data.Books.FindIndex(e => e.Id == id);
+
+            if (entryIndex == -1)
+            {
+                throw new Exception(
+                    string.Format("Unable to find an entry with an ID of {0}", id));
+            }
+
+            Data.Books.RemoveAt(entryIndex);
         }
 
     }
