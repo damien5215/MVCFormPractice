@@ -90,24 +90,25 @@ namespace MVCFormPractice.Controllers
             return View(entry);
         }
 
-        //[HttpPost]
-        //public ActionResult Edit(Entry entry)
-        //{
-        //ValidateEntry(entry);
+        [HttpPost]
+        public ActionResult Edit(Book entry)
+        {
+            //ValidateEntry(entry);
 
-        //if (ModelState.IsValid)
-        //{
-        //    _entriesRepository.UpdateEntry(entry);
+            if (ModelState.IsValid)
+            {
+                _bookRepository.UpdateEntry(entry);
 
-        //    TempData["Message"] = "Your entry was successfully updated!";
+                TempData["Message"] = "Your entry was successfully updated!";
 
-        //    return RedirectToAction("Index");
-        //}
+                return RedirectToAction("Index");
+            }
 
-        //SetupActivitiesSelectListItems();
+            ViewBag.GenreSelectListItems = new SelectList(Data.Data.Genres, "Id", "Name");
+            //SetupActivitiesSelectListItems();
 
-        //return View(entry);
-        //}
+            return View(entry);
+        }
 
     }
 }

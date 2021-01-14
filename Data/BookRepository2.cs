@@ -50,5 +50,19 @@ namespace MVCFormPractice.Data
             Data.Books.Add(book);
         }
 
+        public void UpdateEntry(Book entry)
+        {
+            // Find the index of the entry that we need to update.
+            int entryIndex = Data.Books.FindIndex(e => e.Id == entry.Id);
+
+            if (entryIndex == -1)
+            {
+                throw new Exception(
+                    string.Format("Unable to find an entry with an ID of {0}", entry.Id));
+            }
+
+            Data.Books[entryIndex] = entry;
+        }
+
     }
 }
