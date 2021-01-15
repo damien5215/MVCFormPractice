@@ -104,6 +104,35 @@ namespace MVCFormPractice.Controllers
             return View(entry);
         }
 
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Book entry = _bookRepository.GetBook((int)id);
+
+            if (entry == null)
+            {
+                return HttpNotFound();
+            }
+            SetupGenreSelectListItems();
+
+            return View(entry);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            _bookRepository.DeleteEntry(id);
+
+            TempData["Message"] = "Your entry was successfully deleted!";
+
+            return RedirectToAction("Index");
+        }
+
+
 
         private void ValidateEntry(Book entry)
         {

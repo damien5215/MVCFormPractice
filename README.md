@@ -38,3 +38,11 @@ The MVC model binder will automatically validate non-nullable value type propert
 A validation summary section can be added to a view by calling the ValidationSummary HTML helper method.
 
 Both the “UnobtrusiveJavaScriptEnabled” and “ClientValidationEnabled” app settings must be set to “true” to enable client-side validation (web.config).
+
+Performing a GET request should always be a “safe” action to make, so it should not be used with action methods that modify records. For that reason, controller action methods that delete records are typically restricted to POST requests.
+
+Which of the following MVC data collection properties can be used to pass data from the current request to the next request? (TempData).
+
+MVC partial views allow you to share HTML and Razor code between one or more views. Partial views allow us to keep our view code DRY (code that follows the “Don’t Repeat Yourself” design principle).
+
+This Controller base class method, "HttpNotFoud", makes it easy to return a 404 “Not Found” response to the client.
