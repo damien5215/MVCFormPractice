@@ -57,6 +57,8 @@ namespace MVCFormPractice.Controllers
             {
                 _bookRepository.AddEntry(entry);
 
+                TempData["Message"] = "The entry was successfully added!";
+
                 return RedirectToAction("Index");
             }
 
@@ -94,7 +96,7 @@ namespace MVCFormPractice.Controllers
             {
                 _bookRepository.UpdateEntry(entry);
 
-                TempData["Message"] = "Your entry was successfully updated!";
+                TempData["Message"] = "The entry was successfully updated!";
 
                 return RedirectToAction("Index");
             }
@@ -127,7 +129,7 @@ namespace MVCFormPractice.Controllers
         {
             _bookRepository.DeleteEntry(id);
 
-            TempData["Message"] = "Your entry was successfully deleted!";
+            TempData["Message"] = "The entry was successfully deleted!";
 
             return RedirectToAction("Index");
         }
