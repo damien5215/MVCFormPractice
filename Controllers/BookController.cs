@@ -132,6 +132,11 @@ namespace MVCFormPractice.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Test()
+        {
+            List<Book> entries = _bookRepository.GetEntries();
+            return View(entries);
+        }
 
 
         private void ValidateEntry(Book entry)

@@ -1,0 +1,35 @@
+﻿@model List<MVCFormPractice.Models.Book>
+@using MVCFormPractice.Models
+
+@{
+    ViewBag.Title = "test";
+}
+
+<h2>test</h2>
+
+<div>
+    <ul>
+        @foreach (var info in Model)
+        {
+            <li>@info.DisplayText</li>
+        }
+    </ul>
+</div>
+
+<div>
+    <ul>
+        @foreach (Book info in Model)
+        {
+            <li>@info.Genre.Name</li>
+        }
+    </ul>
+</div>
+
+<div>
+    <ul>
+        @foreach (var info in Model)
+        {
+            <li>@Html.ActionLink(info.DisplayText, "Detail", new { id = info.Id })</li>
+        }
+    </ul>
+</div>

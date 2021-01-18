@@ -178,6 +178,7 @@
     <Content Include="Views\Book\Edit.cshtml" />
     <Content Include="Views\Book\_BookForm.cshtml" />
     <Content Include="Views\Book\Delete.cshtml" />
+    <Content Include="Views\Book\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
