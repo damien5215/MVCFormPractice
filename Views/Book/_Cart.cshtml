@@ -22,6 +22,8 @@
     <tr>
         <th>Book Title</th>
         <th>Author</th>
+        <th>ID</th>
+        <th>Link</th>
         @*<th>Date</th>*@
         @*<th>&nbsp;</th>*@
     </tr>
@@ -32,6 +34,11 @@
                 @entry.Title
             </td>
             <td>@entry.Author</td>
+            <td>@entry.Id</td>
+            <td>
+                <button type="button" id="@entry.Id" class="btnDelete">Click</button>
+            </td>
+
             @*<td>@DateTime.Now</td>*@
 
             @*<td>
@@ -47,3 +54,28 @@
         </tr>
     }
 </table>
+
+
+
+<script>
+
+    $(".btnDelete").on("click", function () {
+
+        $.ajax({
+            url: "/Book/RemoveFromCart/" + this.id,
+            type: "GET"
+        }).done(function () {
+
+            $.ajax({
+            url: "/Book/_Cart",
+            type: "GET"
+        })
+            .done(function (partialViewResult) {
+                $("#refTable").html(partialViewResult);
+            });
+        });
+    });
+
+        //var val = $('#message1').val("test");
+        //console.log(this.id);
+</script>

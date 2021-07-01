@@ -74,7 +74,6 @@ namespace MVCFormPractice.Data
 
 
 
-
         public List<Cart> GetCarts()
         {
             return Data.Carts.ToList();
@@ -91,7 +90,19 @@ namespace MVCFormPractice.Data
             Data.Carts.Add(cart);
         }
 
+        public void DeleteFromCart(int id)
+        {
+            // Find the index of the entry that we need to delete.
+            int entryIndex = Data.Carts.FindIndex(e => e.Id == id);
 
+            if (entryIndex == -1)
+            {
+                throw new Exception(
+                    string.Format("Unable to find an entry with an ID of {0}", id));
+            }
+
+            Data.Carts.RemoveAt(entryIndex);
+        }
 
 
 

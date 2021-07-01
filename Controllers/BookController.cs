@@ -176,7 +176,6 @@ namespace MVCFormPractice.Controllers
 
         }
 
-        //dsds
         public void AddToCart2(int id)
         {
             var books = _bookRepository.GetBook(id);
@@ -192,6 +191,13 @@ namespace MVCFormPractice.Controllers
 
             _bookRepository.AddCart(cart1);
 
+        }
+
+
+        // Needs to be implemented in view
+        public void RemoveFromCart(int id) 
+        {
+            _bookRepository.DeleteFromCart(id);
         }
     }
 }

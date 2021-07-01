@@ -73,7 +73,7 @@
 
     <script>
         $(document).ready(function () {
-            $(".btn").on("click", function () {
+            $(".btnAdd").on("click", function () {
 
                 $("#message1").text("test" + this.id);
 
@@ -93,6 +93,24 @@
                     });
                 });
             });
+
+            $(".btnDelete").on("click", function () {
+
+                $.ajax({
+                    url: "/Book/RemoveFromCart/" + this.id,
+                    type: "GET"
+                }).done(function () {
+
+                    $.ajax({
+                    url: "/Book/_Cart",
+                    type: "GET"
+                })
+                    .done(function (partialViewResult) {
+                        $("#refTable").html(partialViewResult);
+                    });
+                });
+            });
+
         });
         //var val = $('#message1').val("test");
         //console.log(this.id);
