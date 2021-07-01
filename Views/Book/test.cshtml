@@ -5,7 +5,7 @@
     ViewBag.Title = "test";
 }
 
-<h2>test</h2>
+@*<h2>Books</h2>
 
 <p>@DateTime.Now</p>
 
@@ -14,7 +14,7 @@
         <th>Book Title</th>
         <th>Author</th>
         <th>Genre</th>
-        <th>Book ID No</th>
+        <th>ID</th>
         <th>Link</th>
         <th>&nbsp;</th>
     </tr>
@@ -30,8 +30,6 @@
             <td>@entry.Id</td>
 
             <td>
-                @*@Ajax.ActionLink()*@
-                @*ffdd*@
                 <button type="button" id="@entry.Id" class="btn">Click</button>
             </td>
 
@@ -47,12 +45,80 @@
             </td>
         </tr>
     }
-</table>
+</table>*@
+
+@*<h3 id="message1">fsfs</h3>*@
+
+
+@*<div id="refTable">
+    @{Html.RenderAction("_Cart");}
+</div>*@
+
+@*<br>
+<br>
+<br>
+<br>
+<br>*@
+
+
+@*<div class="container">*@
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Books</h2>
+
+            <p>@DateTime.Now</p>
+
+            <table class="table">
+                <tr>
+                    <th>Book Title</th>
+                    <th>Author</th>
+                    <th>ID</th>
+                    <th>Link</th>
+                    @*<th>&nbsp;</th>*@
+                </tr>
+                @foreach (var entry in Model)
+                {
+                    <tr>
+                        <td>
+                            @entry.Title
+                        </td>
+                        <td>@entry.Author</td>
+
+                        <td>@entry.Id</td>
+
+                        <td>
+                            @*@Ajax.ActionLink()*@
+                            @*ffdd*@
+                            <button type="button" id="@entry.Id" class="btn">Click</button>
+                        </td>
+
+                        @*<td>
+                            <div class="pull-right">
+                                <a href="@Url.Action("Edit", new { id = entry.Id })" class="btn btn-warning btn-sm margin-right">
+                                    <span class="glyphicon glyphicon-edit"></span><span class="hidden-xs"> Edit</span>
+                                </a>
+                                <a href="@Url.Action("Delete", new { id = entry.Id })" class="btn btn-danger btn-sm">
+                                    <span class="glyphicon glyphicon-trash"></span><span class="hidden-xs"> Delete</span>
+                                </a>
+                            </div>
+                        </td>*@
+                    </tr>
+                }
+            </table>
+
+
+        </div>
+        <div class="col-md-6">
+
+            <div id="refTable">
+                <!-- partial view content will be inserted here -->
+                @{Html.RenderAction("_Cart");}
+            </div>
+
+        </div>
+    </div><br><hr>
+@*</div>*@
+
+
 
 <h3 id="message1">fsfs</h3>
-
-
-<div id="refTable">
-    <!-- partial view content will be inserted here -->
-    @{Html.RenderAction("_Cart");}
-</div>
