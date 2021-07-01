@@ -154,5 +154,43 @@ namespace MVCFormPractice.Controllers
             ViewBag.GenreSelectListItems = new SelectList(Data.Data.Genres, "Id", "Name");
         }
 
+        public ActionResult _Cart() 
+        {
+            var carts = _bookRepository.GetCarts();
+
+            return PartialView(carts);
+        }
+
+        public void AddToCart() 
+        {
+            var carts = _bookRepository.GetCarts();
+
+            var cart1 = new Cart()
+            {
+                Id = (carts.Count + 1),
+                Author = "Kendrik Lamar",
+                Title = "Yeah"
+            };
+
+            _bookRepository.AddCart(cart1);
+
+        }
+
+        public void AddToCart2(int id)
+        {
+            var books = _bookRepository.GetBook(id);
+            
+            var carts = _bookRepository.GetCarts();
+
+            var cart1 = new Cart()
+            {
+                Id = (carts.Count + 1),
+                Author = books.Author,
+                Title = books.Title
+            };
+
+            _bookRepository.AddCart(cart1);
+
+        }
     }
 }

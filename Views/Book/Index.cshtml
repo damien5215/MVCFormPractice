@@ -16,12 +16,15 @@
 
 <h2>Index</h2>
 
+<p>@DateTime.Now</p>
+
 <table class="table">
     <tr>
         <th>Book Title</th>
         <th>Author</th>
         <th>Genre</th>
         <th>Book ID No</th>
+        <th>Link</th>
         <th>&nbsp;</th>
     </tr>
     @foreach (var entry in Model)
@@ -34,6 +37,12 @@
             <td>@entry.Genre.Name</td>
 
             <td>@entry.BookID</td>
+
+            <td>
+                @*@Ajax.ActionLink()*@
+                ffdd
+            </td>
+
             <td>
                 <div class="pull-right">
                     <a href="@Url.Action("Edit", new { id = entry.Id })" class="btn btn-warning btn-sm margin-right">
@@ -47,3 +56,13 @@
         </tr>
     }
 </table>
+
+<button type="button" id="button1">Click</button>
+
+
+<div id="refTable">
+    <!-- partial view content will be inserted here -->
+    @{Html.RenderAction("_Cart");}
+</div>
+
+

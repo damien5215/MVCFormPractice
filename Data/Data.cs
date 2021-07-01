@@ -10,6 +10,8 @@ namespace MVCFormPractice.Data
     {
         public static List<Book> Books { get; set; }
         public static List<Genre> Genres { get; set; }
+        public static List<Cart> Carts { get; set; }
+
 
 
         /// <summary>
@@ -43,8 +45,15 @@ namespace MVCFormPractice.Data
                 new Book(4, 2021, 1, 6, Genre.GenreType.Comedy, "A Moveable Feast", "Ernest Hemmingway", "blah blah blah.", true, Book.FictionEnum.NonFiction, 2704)
             };
 
+            var carts = new List<Cart>()
+            { 
+                new Cart(1, "Chompsky", "Manufacture"),
+                new Cart(2, "John Smith", "Lost")
+            };
+
             Genres = genres;
             Books = entries;
+            Carts = carts;
         }
     }
 }

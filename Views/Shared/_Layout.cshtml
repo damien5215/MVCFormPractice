@@ -54,7 +54,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
         </footer>
     </div>
 
@@ -69,5 +69,37 @@
         });
     </script>
     @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".btn").on("click", function () {
+
+                $("#message1").text("test" + this.id);
+
+                $.ajax({
+                    url: "/Book/AddToCart2/" + this.id,
+                    type: "GET"
+                    //data: { year: ((val * 1) + 1) }
+                }).done(function () {
+
+                    $.ajax({
+                    url: "/Book/_Cart",
+                    type: "GET"
+                    //data: { year: ((val * 1) + 1) }
+                })
+                    .done(function (partialViewResult) {
+                        $("#refTable").html(partialViewResult);
+                    });
+
+                });
+
+                
+            });
+        });
+        //var val = $('#message1').val("test");
+        //console.log(this.id);
+    </script>
+
 </body>
 </html>

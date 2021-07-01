@@ -72,5 +72,30 @@ namespace MVCFormPractice.Data
             Data.Books.RemoveAt(entryIndex);
         }
 
+
+
+
+        public List<Cart> GetCarts()
+        {
+            return Data.Carts.ToList();
+        }
+
+        public void AddCart(Cart cart)
+        {
+            // Get the next available entry ID.
+            //int nextAvailableEntryId = Data.Books
+            //    .Max(e => e.Id) + 1;
+
+            //book.Id = nextAvailableEntryId;
+
+            Data.Carts.Add(cart);
+        }
+
+
+
+
+
+
+
     }
 }
