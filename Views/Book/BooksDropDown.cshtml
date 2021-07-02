@@ -1,0 +1,24 @@
+﻿@model MVCFormPractice.ViewModels.BooksDropDownViewModel
+
+@{
+    ViewBag.Title = "BooksDropDown";
+}
+
+<h2>BooksDropDown</h2>
+
+<p>@DateTime.Now</p>
+
+@Html.DropDownListFor(m => m.GenreId,
+                            Model.GenreSelectListItems,
+                            new { @class = "form-control", @id = "genreList" })
+
+<button type="button" id="filterBooks">Filter</button>
+
+<div id="bookTable">
+    @{Html.RenderAction("_Books");}
+</div>
+
+
+<script>
+    
+</script>

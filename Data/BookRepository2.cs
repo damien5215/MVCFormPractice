@@ -25,6 +25,23 @@ namespace MVCFormPractice.Data
                 .ToList();
         }
 
+        public List<Book> GetEntries2(int id)
+        {
+            return Data.Books
+                .Join(
+                    Data.Genres, // The inner collection
+                    e => e.GenreId, // The outer selector
+                    a => a.Id,  // The inner selector
+                    (e, a) =>  // The result selector
+                    {
+                        e.Genre = a; // Set the entry's Genre property
+                        return e; // Return the entry
+                    }
+                    )
+                .Where(e => e.GenreId == id)
+                .ToList();
+        }
+
         public Book GetBook(int id) 
         { 
             Book book = Data.Books
@@ -33,6 +50,8 @@ namespace MVCFormPractice.Data
 
             return book;
         }
+
+
         public void AddEntry(Book book)
         {
             // Get the next available entry ID.
@@ -104,8 +123,12 @@ namespace MVCFormPractice.Data
             Data.Carts.RemoveAt(entryIndex);
         }
 
-
-
+        public List<Genre> GetGenres()
+        {
+            return Data.Genres
+                .OrderBy(a => a.Name)
+                .ToList();
+        }
 
 
     }

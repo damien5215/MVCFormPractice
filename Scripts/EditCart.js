@@ -6,13 +6,11 @@
         $.ajax({
             url: "/Book/AddToCart2/" + this.id,
             type: "GET"
-            //data: { year: ((val * 1) + 1) }
         }).done(function () {
 
             $.ajax({
                 url: "/Book/_Cart",
                 type: "GET"
-                //data: { year: ((val * 1) + 1) }
             }).done(function (partialViewResult) {
                 $("#refTable").html(partialViewResult);
             });
@@ -35,6 +33,21 @@
                     $("#refTable").html(partialViewResult);
                 });
         });
+    });
+
+    $("#filterBooks").on("click", function () {
+
+        var x1 = $("#genreList").val()
+        //console.log("GenreID selected is " + x1);
+
+        $.ajax({
+            url: "/Book/_Books/" + x1,
+            type: "POST"
+        })
+            .done(function (partialViewResult) {
+                $("#bookTable").html(partialViewResult);
+            });
+
     });
 
 });

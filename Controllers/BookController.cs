@@ -1,5 +1,6 @@
 ﻿using MVCFormPractice.Data;
 using MVCFormPractice.Models;
+using MVCFormPractice.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -199,5 +200,35 @@ namespace MVCFormPractice.Controllers
         {
             _bookRepository.DeleteFromCart(id);
         }
+
+
+
+        public ActionResult BooksDropDown()
+        {
+            var viewModel = new BooksDropDownViewModel();
+
+            List<Genre> entries = _bookRepository.GetGenres();
+            var authorList = new SelectList(entries, "Id", "Name");
+
+            viewModel.GenreSelectListItems = authorList;
+
+            return View(viewModel);
+        }
+
+        public ActionResult _Books()
+        {
+            List<Book> entries = _bookRepository.GetEntries();
+
+            return PartialView(entries);
+        }
+
+        [HttpPost]
+        public ActionResult _Books(int id)
+        {
+            List<Book> entries = _bookRepository.GetEntries2(id);
+
+            return PartialView(entries);
+        }
+
     }
 }

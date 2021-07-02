@@ -133,6 +133,7 @@
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\BooksDropDownViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datepicker3.min.css" />
@@ -184,6 +185,8 @@
     <Content Include="Views\Book\Delete.cshtml" />
     <Content Include="Views\Book\Test.cshtml" />
     <Content Include="Views\Book\_Cart.cshtml" />
+    <Content Include="Views\Book\BooksDropDown.cshtml" />
+    <Content Include="Views\Book\_Books.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
