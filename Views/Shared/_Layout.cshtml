@@ -70,8 +70,9 @@
     </script>
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/EditCart.js"></script>
 
-    <script>
+    @*<script>
         $(document).ready(function () {
             $(".btnAdd").on("click", function () {
 
@@ -84,15 +85,15 @@
                 }).done(function () {
 
                     $.ajax({
-                    url: "/Book/_Cart",
-                    type: "GET"
-                    //data: { year: ((val * 1) + 1) }
-                })
-                    .done(function (partialViewResult) {
+                        url: "/Book/_Cart",
+                        type: "GET"
+                        //data: { year: ((val * 1) + 1) }
+                    }).done(function (partialViewResult) {
                         $("#refTable").html(partialViewResult);
-                    });
-                });
+                        });
+                 });
             });
+
 
             $(".btnDelete").on("click", function () {
 
@@ -112,9 +113,7 @@
             });
 
         });
-        //var val = $('#message1').val("test");
-        //console.log(this.id);
-    </script>
+    </script>*@
 
 </body>
 </html>
