@@ -230,5 +230,24 @@ namespace MVCFormPractice.Controllers
             return PartialView(entries);
         }
 
+        public ActionResult TextBox() 
+        {
+            string message = "Type Here!";
+
+            var viewModel = new TextBoxViewModel(message);
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult TextBox(string input)
+        {
+            string message = "Success, it posted!";  // update
+
+            var viewModel = new TextBoxViewModel(message);
+
+            return View(viewModel);
+        }
+
     }
 }

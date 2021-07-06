@@ -1,0 +1,43 @@
+﻿@model MVCFormPractice.ViewModels.TextBoxViewModel
+
+@{
+    ViewBag.Title = "TextBox";
+}
+
+<h2>TextBox</h2>
+
+<br>
+<br>
+<br>
+
+
+@*<textarea id="textBoxb1" name="textBox1" rows="4" cols="50">
+    @Model.Message
+    </textarea>
+
+    <button type="button" id="btn1" class="btnZZZ">Click</button>*@
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <textarea id="textBox1" name="textBox1" rows="4" cols="120">@Model.Message</textarea>
+
+            <button type="button" id="btn1" class="btnZZZ">Click</button>
+
+        </div>
+        <div class="col-md-6">
+            <textarea id="textBox2" name="textBox2" rows="4" cols="120"></textarea>
+
+            @*<button type="button" id="btn1" class="btnZZZ">Click</button>*@
+
+        </div>
+    </div><br><hr>
+</div>
+
+<form class="example">
+    <input type="text" placeholder="Search.." name="search">
+    @*<button type="submit"><i class="fa fa-search"></i></button>*@
+    <button type="submit" class="btndjsd">sddsd</button>
+
+</form>

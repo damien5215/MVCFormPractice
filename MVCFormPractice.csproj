@@ -134,6 +134,7 @@
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BooksDropDownViewModel.cs" />
+    <Compile Include="ViewModels\TextBoxViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datepicker3.min.css" />
@@ -149,6 +150,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\TextBox.js" />
     <Content Include="Scripts\EditCart.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -187,6 +189,7 @@
     <Content Include="Views\Book\_Cart.cshtml" />
     <Content Include="Views\Book\BooksDropDown.cshtml" />
     <Content Include="Views\Book\_Books.cshtml" />
+    <Content Include="Views\Book\TextBox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
